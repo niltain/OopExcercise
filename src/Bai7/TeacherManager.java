@@ -1,5 +1,6 @@
 package Bai7;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,6 +33,7 @@ public class TeacherManager {
     public void addTeacher(Scanner scanner) {
         Teacher teacher = createTeacher(scanner);
         teachers.add(teacher);
+        writeDocuments(teachers);
     }
 
     public void removeTeacherById(Scanner scanner) {
@@ -54,6 +56,30 @@ public class TeacherManager {
     public void displayTeacher() {
         for (Teacher teacher : teachers) {
             System.out.println(teacher);
+        }
+    }
+    public void writeDocuments(ArrayList<Teacher>teachers){
+        File file = new File ("TeacherInformation.txt");
+        try {
+            if (file.exists()) {
+                file.createNewFile();
+            }
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+            objectOutputStream.writeObject(teachers);
+            objectOutputStream.close();
+    } catch (Exception e) {
+            System.out.println("File has already exist!");
+        }
+    }
+
+    public void readDocuments (){
+        File file = new File("TeacherInformation.txt");
+        try{
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file));
+            teachers = (ArrayList<Teacher>) objectInputStream.readObject();
+            objectInputStream.close();
+        }catch (Exception e){
+            System.out.println("Error!!!");
         }
     }
 }

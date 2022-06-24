@@ -1,6 +1,9 @@
 package Bai7;
+
+import java.io.Serializable;
+
 ;
-public class Teacher  {
+public class Teacher implements Serializable {
     private String name;
     private int age;
     private String hometown;

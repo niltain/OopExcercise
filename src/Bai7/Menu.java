@@ -7,6 +7,7 @@ public class Menu {
 
         Scanner scanner = new Scanner(System.in);
         TeacherManager teacherManager = new TeacherManager();
+        teacherManager.readDocuments();
         int choice;
         do {
                 System.out.println("------Menu------");
