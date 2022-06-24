@@ -1,6 +1,6 @@
 package Bai7;
-
-public class Teacher {
+;
+public class Teacher  {
     private String name;
     private int age;
     private String hometown;

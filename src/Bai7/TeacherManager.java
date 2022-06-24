@@ -5,11 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TeacherManager {
-    List<Teacher> teachers;
-
-    public TeacherManager() {
-        this.teachers = new ArrayList<>();
-    }
+    List<Teacher> teachers = new ArrayList<>();
 
     public static Teacher createTeacher(Scanner scanner) {
         System.out.println("Enter Teacher Name: ");
@@ -30,7 +26,9 @@ public class TeacherManager {
         double penalty = scanner.nextDouble();
         double finalIncome = salary + bonus - penalty;
         return new Teacher(name, age, hometown, id, salary, bonus, penalty, finalIncome);
+
     }
+
 
     public void addTeacher(Scanner scanner) {
         Teacher teacher = createTeacher(scanner);
@@ -42,20 +40,21 @@ public class TeacherManager {
         int id = scanner.nextInt();
         int check = 0;
         scanner.nextLine();
-        for (int i = 0; i < teachers.size(); i++){
-            if (teachers.get(i).getId() == id ){
+        for (int i = 0; i < teachers.size(); i++) {
+            if (teachers.get(i).getId() == id) {
                 teachers.remove(i);
                 i--;
-                check ++;
+                check++;
             }
         }
-        if (check == 0 ){
+        if (check == 0) {
             System.out.println("No matches ID");
         }
     }
+
     public void displayTeacher() {
-        for (Teacher a : teachers) {
-            System.out.println(a);
+        for (Teacher teacher : teachers) {
+            System.out.println(teacher);
         }
     }
 }
