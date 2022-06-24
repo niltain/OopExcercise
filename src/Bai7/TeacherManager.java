@@ -1,11 +1,10 @@
 package Bai7;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class TeacherManager {
-    List<Teacher> teachers = new ArrayList<>();
+   ArrayList<Teacher> teachers = new ArrayList<>();
 
     public static Teacher createTeacher(Scanner scanner) {
         System.out.println("Enter Teacher Name: ");
